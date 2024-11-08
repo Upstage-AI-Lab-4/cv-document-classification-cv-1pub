@@ -1,23 +1,15 @@
-# 프로젝트 이름
-<예시 1>
-- 증권 배당 데이터 및 관련 세법 QA Engine
-<br>
-
-<예시 2>
-- 유재석 페르소나 Chatbot
-  
-
+# Document Type Classification - Competition 
+- 문서는 금융, 보험, 물류, 의료 등 도메인을 가리지 않고 많이 취급됩니다. 이 대회는 다양한 종류의 문서 이미지의 클래스를 예측합니다.
 <br>
 
 ## 프로젝트 소개
-<예시 1>
-- 이 프로젝트는 증권 배당 데이터와 관련된 정보를 효율적으로 관리하고, 관련 세법에 대한 질문과 답변을 제공하는 QA(Question-Answering) 엔진을 구축하는 것입니다.
-- 사용자는 이 엔진을 통해 특정 기업의 배당 정보나 세법 관련 질문에 대한 답변을 신속하게 얻을 수 있습니다.
-<br>
+- 이번 대회는 computer vision domain에서 가장 중요한 태스크인 이미지 분류 대회입니다.
+- 이미지 분류란 주어진 이미지를 여러 클래스 중 하나로 분류하는 작업입니다. 이러한 이미지 분류는 의료, 패션, 보안 등 여러 현업에서 기초적으로 활용되는 태스크입니다. 딥러닝과 컴퓨터 비전 기술의 발전으로 인한 뛰어난 성능을 통해 현업에서 많은 가치를 창출하고 있습니다.
 
-<예시 2>
-- 이 프로젝트는 유명 인물인 유재석의 페르소나를 바탕으로 한 Chatbot을 개발하는 것입니다.
-- 이 Chatbot은 유재석의 말투, 스타일 등 유재석이 나온 프로그램 텍스트 대화를 반영하여 사용자와 자연스러운 대화를 나누도록 설계됩니다. 
+![image](https://github.com/user-attachments/assets/a283599d-e341-4e64-abf2-86725543004d)
+
+- 그 중, 이번 대회는 문서 타입 분류를 위한 이미지 분류 대회입니다. 문서 데이터는 금융, 의료, 보험, 물류 등 산업 전반에 가장 많은 데이터이며, 많은 대기업에서 디지털 혁신을 위해 문서 유형을 분류하고자 합니다. 이러한 문서 타입 분류는 의료, 금융 등 여러 비즈니스 분야에서 대량의 문서 이미지를 식별하고 자동화 처리를 가능케 할 수 있습니다.
+
 <br>
 
 ## 팀원 구성
@@ -26,49 +18,36 @@
 
 | **팀장** | **팀원 1** | **팀원 2** | **팀원 3** | **팀원 4** |
 | :------: |  :------: | :------: | :------: | :------: |
-|[<img src="https://avatars.githubusercontent.com/u/156163982?v=4" height=150 width=150> <br/> @Github](https://github.com/) |[<img src="https://avatars.githubusercontent.com/u/156163982?v=4" height=150 width=150> <br/> @Github](https://github.com/) |[<img src="https://avatars.githubusercontent.com/u/156163982?v=4" height=150 width=150> <br/> @Github](https://github.com/) |[<img src="https://avatars.githubusercontent.com/u/156163982?v=4" height=150 width=150> <br/> @Github](https://github.com/) |[<img src="https://avatars.githubusercontent.com/u/156163982?v=4" height=150 width=150> <br/> @Github](https://github.com/) |
+|[<img src="https://avatars.githubusercontent.com/u/97029997?v=4" height=150 width=150><br/>이동호](https://github.com/Horidong)|[<img src="https://avatars.githubusercontent.com/u/74906042?v=4" height=150 width=150> <br/> 김이준](https://github.com/yijoon009) |[<img src="https://avatars.githubusercontent.com/u/177802089?v=4" height=150 width=150> <br/> 마서연](https://github.com/sma002452) |[<img src="https://avatars.githubusercontent.com/u/40532035?v=4" height=150 width=150> <br/> 박주연](https://github.com/pbcs0321) |[<img src="https://avatars.githubusercontent.com/u/40630127?v=4" height=150 width=150> <br/> 주남정](https://github.com/namjeong-joo) |
 </div>
 
 <br>
 
 ## 1. 개발 환경
 
-- 주 언어 : 
-- 버전 및 이슈관리 : 
-- 협업 툴 :
+- 주 언어 : Python 3.10
+- 개발환경 : Upstage AI Stage Server
+- MLOps : WandB
 
 <br>
 
-## 2. 채택한 개발 기술과 브랜치 전략
-<예시>
+## 2. 채택한 개발 기술과 전략
 
-### Pandas, NumPy
+### WandB
+- Model 별로 Training 중 Epoch과 Folk에 따른 Loss값과 F1 Score 분석에 사용
+- 해당 F1 Score에 따라 가장 성능 좋은 모델을 최종 예측에 사용
+![image](https://github.com/user-attachments/assets/3cd02da1-38f3-417a-91e0-ac4fb40512e5)
 
-- Pandas
-  - 기업의 배당 데이터를 Pandas DataFrame으로 불러온 후, 각 기업의 배당 수익률을 계산하고, 연도별로 그룹화하여 평균 배당 수익률을 계산합니다.
-  - 필터링 조건을 적용하여 특정 기업의 배당 데이터를 분석하거나, 원하는 형태로 데이터를 변형할 수 있습니다.  
+### 데이터 증강
+**- Augraphy**
+  - 문서 데이터 변형 등의 증강에 유리
 
-- Numpy
-  - 벡터화 연산을 사용하여, 3000여개 데이터를 효율적으로 처리합니다.
+![image](https://github.com/user-attachments/assets/8003eb82-7d4c-4fa7-ac95-f17a97b5fdac)
 
-### Beautifulsoup, Selenium
+**- Albumentation**
+  - 이미지의 여러가지 왜곡, 변형 등의 증강에 유리
 
-- Beautifulsoup
-  - 네이버 증권 페이지에서 배당률, 주가 등의 정보를 포함한 HTML 테이블에서 데이터를 추출합니다.
-
-- Selenium
-  - 웹 페이지에서 동적 콘텐츠를 로드합니다.
-  - 특정 종목의 배당 데이터를 얻기 위해 종목 검색 후, 관련 페이지로 이동해야 할 때, 이 과정을 자동화합니다. 
-
-### 브랜치전략 
-    
-- 브랜치 전략
-  - Git-flow 전략을 기반으로 main, develop 브랜치와 feature 보조 브랜치를 운용했습니다.
-  - main, develop, Feat 브랜치로 나누어 개발을 하였습니다.
-    - **main** 브랜치는 배포 단계에서만 사용하는 브랜치입니다.
-    - **develop** 브랜치는 개발 단계에서 git-flow의 master 역할을 하는 브랜치입니다.
-    - **Feat** 브랜치는 기능 단위로 독립적인 개발 환경을 위하여 사용하고 merge 후 각 브랜치를 삭제해주었습니다.
-
+![image](https://github.com/user-attachments/assets/0c3d215f-2697-47a5-9a11-f4fc2bbd01c6)
 
 <br>
 
@@ -76,89 +55,49 @@
 ```
 ├── README.md
 ├── .gitignore
-└── src
-     ├── App.py
-     ├── index.py
-     ├── api
-     │     └── GoogleAPI.jsx
-     └── styles
-           └── Globalstyled.jsx
-...
-
+├── data                                     # Training and Test Dataset
+├── output
+     ├── models                              # Model Archive
+     └── output                              # Prediction Output Archive
+└── code
+     ├── data_augment.ipynb                  # Data Augmentation and Write
+     ├── model_training.ipynb                # Model Training and Export
+     └── model_load_and_prediction.ipynb     # Model Load from '../output/models' and Prediction
 ```
 
 <br>
 
-## 4. 역할 분담
-
-### 팀원 1
-- **역할**
-    - 프로젝트를 진행하며 맡은 역할 작성
-- **기능**
-    - 프로젝트를 진행하며 개발한 기능 작성
-<br>
-
-### 팀원 2
-- **역할**
-    - 프로젝트를 진행하며 맡은 역할 작성
-- **기능**
-    - 프로젝트를 진행하며 개발한 기능 작성
-<br>
-
-### 팀원 3
-- **역할**
-    - 프로젝트를 진행하며 맡은 역할 작성
-- **기능**
-    - 프로젝트를 진행하며 개발한 기능 작성
-<br>
-
-## 5. 개발 기간 및 작업 관리
+## 4. 개발 기간 및 특징
 
 ### 개발 기간
-- 전체 개발 기간 : 2024-08-12 ~ 2024-08-19
-- 기능 구현 : 2024-08-00 ~ 2024-08-00
-- 그외 기간 작성
-  
+- 전체 개발 기간 : 2024-10-29 ~ 2024-11-08
+- 기능 구현 : 2024-10-29 ~ 2024-11-08
 <br>
 
-### 작업 관리
-<예시>
+### 데이터 증강 내용
+- 기본 1570개의 학습 데이터를 증강
+- Augraphy의 DirtyDrum 및 NoiseTexture를 이용
+- Albumentations의 Flip, Rotate, BrightContrast, Defocus, Gamma, HueSaturation, MedianBlur, MotionBlur, GaussNoise 등을 이용
+- 최종 9만5천여개의 학습 데이터를 사용
 
-- 아래와 같은 오류가 발생했습니다.
+![image](https://github.com/user-attachments/assets/b2687c83-c3bc-4866-952b-aa1c3ebfb310)
 
-```python
-C:\Users\yong\AppData\Local\Programs\Python\Python311\Lib\site-packages\langchain_core\_api\deprecation.py:117: LangChainDeprecationWarning: The class `langchain_community.llms.openai.OpenAI` was deprecated in langchain-community 0.0.10 and will be removed in 0.2.0. An updated version of the class exists in the langchain-openai package and should be used instead. To use it run `pip install -U langchain-openai` and import as `from langchain_openai import OpenAI`.
-  warn_deprecated(
-```
-
-### 설명
-
-- langchain_community.llms.openai.OpenAI는 langchain-community 0.0.10에서 deprecate되었으며 0.2.0에서 제거될 예정입니다.
-- 업데이트된 버전의 클래스가 langchain-openai 패키지에 있으며 이것을 사용해야 합니다.
-
-
-### 해결
-
-- 명령 프롬프트(또는 터미널)에서 다음 명령을 실행해 langchain-openai 패키지를 설치합니다.
-
-```python
-pip install -U langchain-openai
-```
-
-- 아래와 같이 import문 변경하면 해결됩니다.
-```python
-from langchain_openai import OpenAI
-```
-
-
-<br>
 
 ## 5. 프로젝트 후기
 
-### 팀원 1
-프로젝트 후기 작성
+#### 이동호
+- CV Engineer를 목표로 하는 저에게는 너무 중요한 기회였기 때문에 이번에 제대로 이해하고 넘어가는 것을 목표로 했었습니다. 
+- 기존에 제가 알던 지식을 더해 한 단계 성장한 것 같아 기쁩니다.
 
-### 팀원 2
-프로젝트 후기 작성
-<br>
+#### 김이준
+- 이번 경진대회때 WandB를 처음 적용해봤는데 팀원끼리 공유도 가능하고 실시간 로그도 보여서 다음 프로젝트때도 초반부터 도입하면 좋을것같다.
+- 그리고  팀원분들과 같이 다양한 방법을 시도해서 좋았다.
+
+#### 박주연
+- 팀원분들의 역량과 열정이 뛰어나서 많이 배울 수 있는 시간이었습니다. 
+- 이번 경험을 통해 CV 분야에 대해 좀더 관심을 가지고 공부하고 싶습니다.
+
+#### 마서연
+- 팀원분들이 진행상황이라던지 해 본 시도들이라던지 여러모로 소통과 공유를 잘해주셔서 많은 걸 배웠다. 
+- 대회 중반부터는 남들에 비해서 내가 개인적으로 한 점수들이 안오르길래 고민을 많이 했는데, 그래도 팀원분들 덕에 대회를 잘 마무리 한 것 같아 감사하다.
 
